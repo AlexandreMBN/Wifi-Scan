@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Alexandre/.pico-sdk/sdk/1.5.1/src/rp2_common/pico_fix
+# Install script for directory: C:/Users/Alexandre/.pico-sdk/sdk/2.1.0/src/rp2_common/pico_fix
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/WifiScan")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/redes_wifi")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,12 +34,11 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Alexandre/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Alexandre/.pico-sdk/toolchain/13_3_Rel1/bin/arm-none-eabi-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
+  # Include the install script for the subdirectory.
   include("C:/Users/Alexandre/Documents/EMBARCATECH/WifiScan/build/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/cmake_install.cmake")
-
 endif()
 

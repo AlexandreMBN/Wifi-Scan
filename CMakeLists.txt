@@ -15,9 +15,9 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
-set(sdkVersion 1.5.1)
-set(toolchainVersion 13_2_Rel1)
-set(picotoolVersion 2.0.0)
+set(sdkVersion 2.1.0)
+set(toolchainVersion 13_3_Rel1)
+set(picotoolVersion 2.1.0)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
     include(${picoVscode})
@@ -28,23 +28,37 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(WifiScan C CXX ASM)
+project(redes_wifi C CXX ASM)
+
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
+
 # Add executable. Default name is the project name, version 0.1
-add_executable(WifiScan WifiScan.c )
-pico_set_program_name(WifiScan "WifiScan")
-pico_set_program_version(WifiScan "0.1")
+
+add_executable(redes_wifi redes_wifi.c )
+
+pico_set_program_name(redes_wifi "redes_wifi")
+pico_set_program_version(redes_wifi "0.1")
+
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(WifiScan 0)
-pico_enable_stdio_usb(WifiScan 1)
+pico_enable_stdio_uart(redes_wifi 0)
+pico_enable_stdio_usb(redes_wifi 1)
+
 # Add the standard library to the build
-target_link_libraries(WifiScan
+target_link_libraries(redes_wifi
         pico_stdlib)
+
 # Add the standard include files to the build
-target_include_directories(WifiScan PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR} )
+target_include_directories(redes_wifi PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}
+)
+
 # Add any user requested libraries
-target_link_libraries(WifiScan 
-        pico_cyw43_arch_none )
-pico_add_extra_outputs(WifiScan)
+target_link_libraries(redes_wifi 
+        pico_cyw43_arch_none
+        )
+
+pico_add_extra_outputs(redes_wifi)
+
+
+
